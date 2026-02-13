@@ -32,7 +32,7 @@ function Surprise() {
         <section className="surprise" id="surprise">
             <div className="surprise-glow" />
             <div className="surprise-bg-photo">
-                <img src="/photos/valentines-setup.jpg" alt="" className="surprise-bg-img" />
+                <img src={`${import.meta.env.BASE_URL}photos/valentines-setup.jpg`} alt="" className="surprise-bg-img" />
             </div>
 
             {showConfetti && (
@@ -90,7 +90,7 @@ function Surprise() {
                     <div className="surprise-photo-frame">
                         <div className="surprise-photo-glow" />
                         <img
-                            src="/photos/surprise-couple.jpg"
+                            src={`${import.meta.env.BASE_URL}photos/surprise-couple.jpg`}
                             alt="Us together"
                             className="surprise-photo"
                         />

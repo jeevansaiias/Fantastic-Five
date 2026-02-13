@@ -27,7 +27,7 @@ function Hero() {
                     <div className="hero-photo-glow" />
                     <div className="hero-photo-border">
                         <img
-                            src="/photos/couple-hero.jpg"
+                            src={`${import.meta.env.BASE_URL}photos/couple-hero.jpg`}
                             alt="Our beautiful moment together"
                             className="hero-photo"
                         />

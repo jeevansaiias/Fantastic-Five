@@ -141,7 +141,7 @@ function LoveLetter() {
 
                                 <div className="letter-photo">
                                     <img
-                                        src="/photos/wonder-woman.jpg"
+                                        src={`${import.meta.env.BASE_URL}photos/wonder-woman.jpg`}
                                         alt="The Wonder Woman in your life"
                                         className="letter-photo-img"
                                     />
