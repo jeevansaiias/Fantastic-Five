@@ -1,0 +1,276 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient-hero);
+    padding: 40px 20px;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(233, 30, 99, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 30%, rgba(156, 39, 176, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(255, 215, 0, 0.04) 0%, transparent 50%);
+    animation: bgPulse 8s ease-in-out infinite;
+}
+
+@keyframes bgPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.hero-stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 215, 0, 0.4), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 215, 0, 0.3), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 182, 193, 0.5), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 215, 0, 0.3), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(233, 30, 99, 0.3), transparent);
+    background-size: 200px 100px;
+    animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 0.8;
+    }
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-content.loaded {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 10px 28px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50px;
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-warm);
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 215, 0, 0.05);
+    animation: fadeIn 1s ease 0.5s both;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    background: linear-gradient(135deg, #FFD700 0%, #E91E63 40%, #FFD700 60%, #E91E63 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+    filter: drop-shadow(0 0 30px rgba(233, 30, 99, 0.3));
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--text-muted);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease 0.8s both;
+}
+
+/* ===== Featured Couple Photo ===== */
+.hero-photo-frame {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto 2rem;
+    animation: fadeIn 1.2s ease 1s both;
+}
+
+.hero-photo-glow {
+    position: absolute;
+    inset: -20px;
+    border-radius: 24px;
+    background: radial-gradient(ellipse, rgba(233, 30, 99, 0.25) 0%, rgba(156, 39, 176, 0.1) 40%, transparent 70%);
+    filter: blur(20px);
+    animation: pulse 3s ease-in-out infinite;
+    z-index: 0;
+}
+
+.hero-photo-border {
+    position: relative;
+    z-index: 1;
+    padding: 5px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #FFD700 0%, #E91E63 30%, #9C27B0 60%, #E91E63 80%, #FFD700 100%);
+    background-size: 300% 300%;
+    animation: gradientShift 4s ease infinite;
+    box-shadow:
+        0 8px 32px rgba(233, 30, 99, 0.3),
+        0 0 60px rgba(233, 30, 99, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.hero-photo {
+    display: block;
+    width: clamp(260px, 40vw, 380px);
+    height: clamp(200px, 30vw, 300px);
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 16px;
+    transition: transform 0.5s ease;
+}
+
+.hero-photo-frame:hover .hero-photo {
+    transform: scale(1.03);
+}
+
+.hero-photo-caption {
+    position: relative;
+    z-index: 1;
+    margin-top: 12px;
+    font-family: var(--font-handwriting);
+    font-size: 1rem;
+    color: var(--rose-light);
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* ===== Year Display ===== */
+.hero-year-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1s ease 1.3s both;
+}
+
+.year-start,
+.year-end {
+    font-family: var(--font-ui);
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 300;
+    color: var(--gold-warm);
+    letter-spacing: 3px;
+}
+
+.year-divider {
+    display: flex;
+    align-items: center;
+}
+
+.heart-line {
+    font-size: 0.8rem;
+    color: var(--rose-deep);
+    letter-spacing: 8px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.hero-tagline {
+    font-family: var(--font-handwriting);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--rose-light);
+    animation: fadeIn 1.5s ease 1.5s both;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    z-index: 2;
+    animation: fadeIn 1s ease 2s both;
+    transition: color 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    color: var(--rose-light);
+}
+
+.scroll-text {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.scroll-arrow {
+    animation: float 2s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 16px 40px;
+    }
+
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 8px 20px;
+        letter-spacing: 2px;
+    }
+
+    .hero-photo {
+        width: clamp(220px, 75vw, 320px);
+        height: clamp(170px, 55vw, 250px);
+    }
+
+    .hero-year-display {
+        gap: 1rem;
+    }
+
+    .heart-line {
+        letter-spacing: 4px;
+        font-size: 0.7rem;
+    }
+}

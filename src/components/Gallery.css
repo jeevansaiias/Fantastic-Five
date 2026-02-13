@@ -1,0 +1,107 @@
+.gallery {
+    padding: var(--section-padding);
+    background: var(--gradient-subtle);
+    position: relative;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gallery-card {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+    min-height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--dark-card);
+    border: 1px solid rgba(233, 30, 99, 0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--card-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px color-mix(in srgb, var(--card-color) 20%, transparent);
+}
+
+.gallery-card.active {
+    transform: scale(1.05);
+    border-color: var(--card-color);
+    box-shadow: 0 0 40px color-mix(in srgb, var(--card-color) 30%, transparent);
+}
+
+/* Photo cards */
+.gallery-card-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-card:hover .gallery-card-photo {
+    transform: scale(1.1);
+}
+
+/* Overlay for text */
+.gallery-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    padding: 40px 14px 14px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.gallery-card:hover .gallery-card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-card-title {
+    font-family: var(--font-handwriting);
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+.gallery-card-caption {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .gallery-card-title {
+        font-size: 0.85rem;
+    }
+}

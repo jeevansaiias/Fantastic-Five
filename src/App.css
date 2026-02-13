@@ -1,0 +1,39 @@
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Divider between sections */
+.app>section:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose-deep), transparent);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--dark-bg);
+  border-top: 1px solid rgba(233, 30, 99, 0.15);
+}
+
+.footer p {
+  font-family: var(--font-handwriting);
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.footer .footer-sub {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: rgba(212, 160, 176, 0.5);
+  margin-top: 8px;
+  font-weight: 300;
+}
