@@ -101,7 +101,7 @@ function Surprise() {
 
             <div className="surprise-footer reveal">
                 <p className="forever-text">Five years down. Forever to go.</p>
-                <p className="family-text">You, Me, Nemo & Taka 🐱🐱</p>
+                <p className="family-text">You, Me, Nemo & Taka 🐈 🐈‍⬛</p>
             </div>
         </section>
     )

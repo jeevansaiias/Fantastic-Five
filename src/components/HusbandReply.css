@@ -1,0 +1,200 @@
+.husband-reply {
+    padding: var(--section-padding);
+    background: var(--dark-bg);
+    position: relative;
+}
+
+.reply-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+/* Envelope */
+.reply-envelope {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.reply-envelope:hover {
+    transform: scale(1.05);
+}
+
+.reply-envelope-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f4e7d7 0%, #e8d5c4 100%);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.reply-envelope-seal {
+    font-size: 2.5rem;
+    z-index: 2;
+    animation: pulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.3));
+}
+
+.reply-envelope-prompt {
+    position: absolute;
+    bottom: 20px;
+    font-family: var(--font-handwriting);
+    font-size: 0.9rem;
+    color: #8b7355;
+    z-index: 2;
+}
+
+/* Open Animation Styles */
+.reply-wrapper.opened {
+}
+
+.reply-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInUp 0.8s ease;
+}
+
+.reply-letter {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    background: linear-gradient(170deg, #fdf8f0 0%, #f5ebe0 40%, #fdf8f0 100%);
+    border-radius: 4px;
+    padding: 50px 45px;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 0 100px rgba(139, 115, 85, 0.05);
+    color: #3d2b1f;
+}
+
+.reply-letter::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid rgba(200, 170, 140, 0.3);
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.reply-greeting {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--rose-deep);
+    margin-bottom: 24px;
+}
+
+.reply-body {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #4a3728;
+    margin-bottom: 16px;
+    text-indent: 2em;
+}
+
+.reply-body strong {
+    color: var(--rose-deep);
+    font-weight: 600;
+}
+
+.reply-highlight {
+    background: linear-gradient(90deg, rgba(233, 30, 99, 0.08) 0%, rgba(233, 30, 99, 0.03) 100%);
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-left: 3px solid var(--rose-deep);
+    border-radius: 0 8px 8px 0;
+    text-indent: 0 !important;
+}
+
+.reply-postscript {
+    font-family: var(--font-handwriting);
+    font-size: 1.1rem;
+    color: var(--rose-deep);
+    margin-top: 20px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.reply-closing {
+    font-family: var(--font-handwriting);
+    font-size: 1.3rem;
+    color: var(--rose-deep);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+.reply-signature {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--rose-deep);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align signature to the left/start */
+    gap: 0.5rem; /* Add space between text and heart */
+}
+
+/* Override font for the J to make it readable */
+.signature-initial {
+    font-family: var(--font-body); /* Use serif font instead of cursive */
+    font-style: italic;
+    font-weight: 600;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+}
+
+.close-reply {
+    margin-top: 24px;
+    padding: 10px 28px;
+    background: none;
+    border: 1px solid rgba(233, 30, 99, 0.3);
+    border-radius: 50px;
+    color: var(--text-muted);
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-reply:hover {
+    border-color: var(--rose-deep);
+    color: var(--rose-light);
+    box-shadow: 0 0 20px rgba(233, 30, 99, 0.2);
+}
+
+@media (max-width: 768px) {
+    .reply-letter {
+        padding: 40px 28px;
+    }
+
+    .reply-greeting {
+        font-size: 1.6rem;
+    }
+
+    .reply-body {
+        font-size: 0.95rem;
+    }
+
+    .reply-envelope {
+        width: 240px;
+        height: 160px;
+    }
+}

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Hero from './components/Hero'
 import Timeline from './components/Timeline'
 import LoveLetter from './components/LoveLetter'
+import HusbandReply from './components/HusbandReply'
 import Gallery from './components/Gallery'
 import Surprise from './components/Surprise'
 import FloatingHearts from './components/FloatingHearts'
@@ -33,6 +34,7 @@ function App() {
       <Hero />
       <Timeline />
       <LoveLetter />
+      <HusbandReply />
       <Gallery />
       <Surprise />
       <footer className="footer">
