@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Fantastic-Five/',
+  // base: '/Fantastic-Five/', // Commented out for Vercel deployment
 })
